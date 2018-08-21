@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <title>Plus1s Forum</title>
+  </head>
+  <body>
+    <h1>All Threads</h1>
+    <p><a href="/newthread"><button>New Thread</button></a></p>
+    {% if thread_list %}
+    <ul>
+    {% for thread in thread_list %}
+        <li><a href="/{{ thread.id }}/">{{ thread.title }}</a></li>
+    {% endfor %}
+    </ul>
+    {% else %}
+        <p>No Thread are available.</p>
+    {% endif %}
+  </body>
+</html>
+

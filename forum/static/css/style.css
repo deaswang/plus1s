@@ -1,0 +1,48 @@
+legend {
+    background-color: #000;
+    color: #fff;
+    padding: 3px 6px;
+}
+
+input,
+label {
+    width: 43%;
+}
+input {
+    margin: .5rem 0;
+    padding: .5rem;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+label {
+    display: inline-block;
+    font-size: .8rem;
+}
+input:invalid + span:after {
+    content: '✖';
+    color: red;
+    padding-left: 5px;
+}
+
+input:valid + span:after {
+    content: '✓';
+    color: green;
+    padding-left: 5px;
+}
+.submit {
+    width: 92%;
+    margin: 0 auto;
+}
+
+table,
+td {
+    border: 1px solid #333;
+}
+
+thead,
+tfoot {
+    background-color: #333;
+    color: #fff;
+}
+

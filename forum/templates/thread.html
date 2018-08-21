@@ -1,0 +1,59 @@
+<html>
+  <head>
+    <title>{{ thread.title }}</title>
+      {% load static %}
+      <link rel="stylesheet" href="{% static "css/style.css" %}" type="text/css" />
+  </head>
+  <body>
+    <p><a href="/">Back to All Threads</a> </p>
+    <table>
+        <thead>
+        <tr>
+            <th colspan="3">{{ thread.title }}</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{ thread.pub_name }}</td>
+            <td>{{ thread.pub_date }}</td>
+            <td>{{ thread.content }}</td>
+        </tr>
+        {% if post_list %}
+        {% for post in post_list %}
+        <tr>
+            <td>{{ post.pub_name }} </td>
+            <td>{{ post.pub_date }}</td>
+            <td>{{ post.content }}</td>
+        </tr>
+        {% endfor %}
+        {% endif %}
+        </tbody>
+    </table>
+
+
+    <fieldset>
+    <legend>New Reply</legend>
+    <form method="post"> {% csrf_token %}
+        <div>
+            <label for="name"> Name:
+            </label>
+            <input type="text" id="name" name="name"
+                   pattern="[A-Za-z\s]+"
+                   maxlength="20" minlength="1" value="anonymous" required />
+            <span></span>
+        </div>
+        <div>
+            <label for="content"> Content:
+            </label>
+            <textarea id="content" name="content" wrap="hard">
+            </textarea>
+            <span></span>
+        </div>
+        <div>
+            <input type="submit" class="submit" value="Submit" />
+        </div>
+
+    </form>
+    </fieldset>
+  </body>
+</html>
